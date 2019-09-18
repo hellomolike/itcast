@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    for(let i=0; i<5; i++){
+        console.log(i);
+    }
+    //console.log("我在外面：" + i);
+    const str = `
+        sdfsdfsdfsdfsd
+        sdfsdlfjsdlfj
+        <span>dfdsfsdfsdfsd</span>
+    `;
+    console.log(str);
+
+    let fn=function(a, b){
+        b = b || 1;
+        console.log(a + b);
+    }
+    fn(10,100);
+
+    let fn1 = (val1, val2 = 1)=>{
+        let val = val1 + val2;
+        console.log(val);
+    }
+    fn1(1000, 10000);
+
+    let person = {
+        name: "liuyan",
+        eat: function (val) {
+            console.log(this);
+            console.log(this.name + "吃了" + val);
+        },
+        eat2: val=>{
+            console.log(this);
+            console.log(person.name + "吃了" + val);
+        },
+        eat3(val){
+            console.log(this);
+            console.log(person.name + "喝了" + val);
+        }
+    }
+    person.eat("香蕉");
+    person.eat2("鸡蛋");
+    person.eat3("椰汁");
+
+    const p = {
+        name:"jack",
+        age:21,
+        language: ['java','js','css']
+    }
+    let fn3 = p1 =>console.log(p1.name);
+    fn3(p);
+
+    let fn4 = ({name, language})=>console.log(name, language);
+    fn4(p);
+
+    new Promise((resolve, reject)=>{
+        $.ajax({
+            url: "",
+            dataType: "JSON",
+            success:function(data){
+                resolve(data);
+            },
+            error: function(error){
+                reject(error)
+            }
+        });
+    }).then(val=>{
+        console.log(val);
+    }).catch(val=>{
+        console.log(val);
+    })
+
+</script>
+
+</body>
+</html>

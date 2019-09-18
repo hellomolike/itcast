@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-bind:class="errorClass"></div>
+        <div v-bind:class="warningClass"></div>
+        <div class="static" v-bind:class="[errorClass, warningClass]"></div>
+        <input type="button" :class="ativeClass">
+        <div style="height: 50px" :style="[colorStyle, borderStyle]"></div>
+        <div style="height: 50px" :style="{'background-color': color, border: border}"></div>
+    </div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    // 创建vue实例
+    let app = new Vue({
+        el: "#app", // vue实例的作用域
+        data: {    // vue实例的数据模型
+            errorClass: "error",
+            warningClass: ["warning", "xxx"],
+            ativeClass: {
+                active: false
+            },
+            colorStyle: {backgroundColor: "orange", width: "50%"},
+            borderStyle: {border: "3px solid red"},
+            color: "orange",
+            border: "3px solid red"
+        }
+    });
+</script>
+</html>

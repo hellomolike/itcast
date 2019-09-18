@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" value="java" v-model="brand.language">java
+        <input type="checkbox" value="php" v-model="brand.language">php
+        <input type="checkbox" value="ios" v-model="brand.language">ios
+        <h1>您选择了：{{brand.language.join(",")}}</h1>
+    </div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    // 创建vue实例
+    let app = new Vue({
+        el: "#app", // vue实例的作用域
+        data: {    // vue实例的数据模型
+            brand:{
+                language: [],
+                name: "zhangsan",
+                age: 30
+            }
+        }
+    });
+</script>
+</html>

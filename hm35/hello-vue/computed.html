@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <h1>
+            {{date()}}
+        </h1>
+    </div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    // 创建vue实例
+    let app = new Vue({
+        el: "#app", // vue实例的作用域
+        data: {    // vue实例的数据模型
+            birthday:1529032123201 // 毫秒值
+        },
+        computed: {
+            birt(){
+                const birth = new Date(this.birthday);
+                return birth.getFullYear() + "-" + birth.getMonth() + "-" + birth.getDay();
+            }
+        },
+        methods: {
+            date(){
+                const birth = new Date(this.birthday);
+                return birth.getFullYear() + "-" + birth.getMonth() + "-" + birth.getDay();
+            }
+        }
+    });
+</script>
+</html>

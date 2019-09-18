@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <counter :xxx="hello" :yyy="lessons" title="23" ></counter>
+    </div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+
+    const counter = {
+        template: `
+            <div>
+                <h1>{{xxx}}</h1>
+                <ul>
+                    <li v-for="(lesson,index) in yyy" :key="index">{{lesson.id}}.{{lesson.name}}</li>
+                </ul>
+                <h1>{{title}}</h1>
+            </div>
+
+        `,
+        props:{
+            title: {
+                type: Number
+            },
+            xxx: {},
+            yyy: {
+                type: Array,
+                default: [],
+                required: true
+            }
+        }
+    }
+
+    // 创建vue实例
+    let app = new Vue({
+        el: "#app", // vue实例的作用域
+        data: {
+            hello: "大家好，我叫张富贵",
+            lessons:[
+                {id:1, name: 'java'},
+                {id:2, name: 'php'},
+                {id:3, name: 'ios'},
+            ]
+        },
+        components: {
+            counter
+        }
+    });
+</script>
+</html>
